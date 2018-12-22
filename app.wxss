@@ -1,0 +1,89 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  box-sizing: border-box;
+} 
+view,
+text {
+  box-sizing: border-box;
+  font-family: "Microsoft YaHei";
+}
+
+/* ----------------------------------- */
+/* 间距 和 高 */
+.padding-lr-20 {
+  padding: 0 20rpx;
+}
+.padding-lr-40 {
+  padding: 0 40rpx;
+}
+.margin-left-10 {
+  margin-left: 10rpx;
+}
+.height-normal {
+  height: 75rpx;
+}
+.height-max {
+  height: 100rpx;
+}
+.border-color-gray {
+  border: 1rpx solid #ccc;
+}
+/* ----------------------------------- */
+
+
+/* ----------------------------------- */
+/* 主题色 */
+/* 字 */
+.theme-color-font {
+  color: #4fcc70;
+}
+.font-color-gray {
+  color: #707070;
+}
+/* 背景 */
+.theme-color-background {
+  background: #4fcc70;
+}
+/* ------------------------------------- */
+
+
+/* ------------------------------------- */
+/* 字体大小 */
+.font-min {
+  font-size: 24rpx;
+}
+.font-middle {
+  font-size: 28rpx;
+}
+.font-title {
+  font-size: 32rpx;
+}
+.lh-min {
+  line-height: 45rpx;
+}
+.lh-middle {
+  line-height: 60rpx;
+}
+/* ------------------------------------- */
+
+
+
+/* ------------------------------------- */
+/* flex布局 */
+.flex-center-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.flex-wrap-between {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+/* ------------------------------------- */

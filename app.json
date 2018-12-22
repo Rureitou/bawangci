@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/attractions/attractions",
+    "pages/map/map",
+    "pages/weather/weather"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#4fcc70",
+    "navigationBarTitleText": "乌江霸王祠景区",
+    "navigationBarTextStyle": "#fff"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./static/icons/icon-shouye-gray.png",
+        "selectedIconPath": "./static/icons/icon-shouye-green.png"
+      },
+      {
+        "pagePath": "pages/attractions/attractions",
+        "text": "景区景点",
+        "iconPath": "./static/icons/icon-jingdian-gray.png",
+        "selectedIconPath": "./static/icons/icon-jingdian-green.png"
+      },
+      {
+        "pagePath": "pages/map/map",
+        "text": "景区地图",
+        "iconPath": "./static/icons/icon-daohang-gray.png",
+        "selectedIconPath": "./static/icons/icon-daohang-green.png"
+      },
+      {
+        "pagePath": "pages/weather/weather",
+        "text": "景区天气",
+        "iconPath": "./static/icons/icon-tianqi-gray.png",
+        "selectedIconPath": "./static/icons/icon-tianqi-green.png"
+      }
+    ],
+    "backgroundColor": "#fff",
+    "color": "#707070",
+    "selectedColor": "#4fcc70",
+    "borderStyle": "#ccc",
+    "position": "bottom"
+  }
+}
