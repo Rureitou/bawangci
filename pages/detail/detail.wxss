@@ -1,0 +1,46 @@
+/* pages/detail/detail.wxss */
+
+/* banner */
+
+.banner, swiper {
+  height: 420rpx;
+}
+
+.banner .slide-image {
+  width: 750rpx;
+  height: 420rpx;
+}
+/*
+* 景区信息
+*/
+.info {
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+}
+.info .height-max {
+  width: 100%;
+  border-top: 1rpx solid #ccc;
+  display: inline-block;
+  line-height: 100rpx;
+  font-weight: 600;
+}
+.info .info_item {
+  display: flex;
+  justify-content: flex-start;
+  line-height: 45rpx;
+}
+.info .info_item .last {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+/*
+* 景区介绍
+*/
+.content {
+  padding-top: 0;
+}
+.content .content_item {
+  line-height: 60rpx;
+  text-indent: 60rpx;
+}

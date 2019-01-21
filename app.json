@@ -1,9 +1,12 @@
 {
+  "cloud": true,
   "pages": [
     "pages/index/index",
+    "pages/logs/logs",
     "pages/attractions/attractions",
     "pages/map/map",
-    "pages/weather/weather"
+    "pages/weather/weather",
+    "pages/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -11,7 +11,7 @@
 
   <view class='index-info'>
     <view class='header padding-lr-20'>
-      <view class='header-left' bindtap="bindToView('pages/map/map')">
+      <view class='header-left' bindtap='toDetail' data-idx='0'>
         <image src='./../../static/icons/index-icon-address.png'></image>
         <text>乌江霸王祠景区</text>
       </view>
@@ -33,12 +33,12 @@
     </view>
 
     <!-- 景区概况 -->
-    <view class='describe padding-lr-20 '>
+    <view class='describe padding-lr-20'>
       <view class='describe-title height-max flex-center-between'>
         <text class='font-title'>景区介绍</text>
-        <text class='theme-color-font font-middle'>详情</text>
+        <text class='theme-color-font font-middle' bindtap='toDetail' data-idx='0'>详情</text>
       </view>
-      <image src='./../../static/images/index/desc.png'></image>
+      <image src='cloud://bawangci-9de84d.6261-bawangci-9de84d/index-banner/middle.jpg'></image>
       <view class='flex-column lh-middle font-color-gray'>
         <text class='font-min' wx:for="{{descList}}" wx:key="this">{{item.title}}: {{item.content}}</text>
       </view>
@@ -54,7 +54,7 @@
         景区展示
       </view>
       <view class='list-wrap flex-wrap-between'>
-        <view class='list-item' wx:for="{{attractions}}" wx:key="this">
+        <view class='list-item' wx:for="{{attractions}}" wx:key="this" data-idx='{{index + 1}}' bindtap='toDetail'>
           <image src='{{item.image}}'></image>
           <text class='font-middle lh-middle'>{{item.name}}</text>
         </view>

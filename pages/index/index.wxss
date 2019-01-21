@@ -92,6 +92,6 @@
 
 .attraction .list-wrap .list-item image {
   width: 345rpx;
-  height: 180rpx;
+  height: 200rpx;
   border-radius: 20rpx;
 }

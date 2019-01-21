@@ -4,14 +4,17 @@ const app = getApp()
 
 Page({
   data: {
+    detailId: null,
     motto: '欢迎来到乌江霸王祠景区',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     imgUrls: [
-      './../../static/images/banners/banner1.jpg',
-      './../../static/images/banners/banner2.jpg',
-      './../../static/images/banners/banner3.jpg'
+      'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-banner/banner1.jpg',
+      'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-banner/banner2.jpg',
+      'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-banner/banner3.jpg',
+      'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-banner/banner4.jpg',
+      'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-banner/banner5.jpg'
     ],
     indicatorDots: true,
     autoplay: true,
@@ -36,33 +39,57 @@ Page({
     ],
     attractions: [{
         name: '西侧殿',
-        image: './../../static/images/index/list-1.png'
+        image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-1.jpg'
       },
       {
         name: '东侧殿',
-        image: './../../static/images/index/list-2.png'
+        image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-2.jpg'
       },
       {
         name: '享殿',
-        image: './../../static/images/index/list-3.png'
+        image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-3.jpg'
       },
       {
         name: '西楚霸王衣冠冢',
-        image: './../../static/images/index/list-4.png'
+        image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-4.jpg'
+      },
+      {
+        name: '驻马河',
+        image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-5.jpg'
+      },
+      {
+        name: '乌江亭',
+        image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-6.jpg'
+      },
+      {
+        name: '抛首石',
+        image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-7.jpg'
+      },
+      {
+        name: '三十一响钟亭',
+        image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-8.jpg'
+      },
+      {
+        name: '碑廊',
+        image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-9.jpg'
+      },
+      {
+        name: '霸王祠“三月三”庙会',
+        image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-10.jpg'
       }
     ]
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
+  /**
+   * 打电话
+   */
   callUp: function() {
     wx.makePhoneCall({
       phoneNumber: '0555-5391207'
     })
   },
+  /**
+   * 获取信息 授权
+   */
   getUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
@@ -74,9 +101,13 @@ Page({
   /**
    * 页面跳转
    */
-  bindToView(url) {
-    wx.navigateTo({
-      url: url,
+  toDetail(e) {
+    this.setData({
+      detailId: e.currentTarget.dataset.idx
+    })
+    console.log('this.detailId', this.data.detailId)
+    app.toView('/pages/detail/detail', {
+      detail_id: this.data.detailId
     })
   },
   /**
@@ -110,23 +141,27 @@ Page({
       })
     }
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-    // wx.getSetting({
-    //   success(res) {
-    //     if (!res.authSetting['scope.record']) {
-    //       wx.authorize({
-    //         scope: 'scope.record',
-    //         success(res) {
-    //           // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
-    //           console.log(res)
-    //           wx.startRecord()
-    //         }
-    //       })
-    //     }
-    //   }
-    // })
+  upLoad() {
+    wx.chooseImage({
+      success: chooseResult => {
+        // 将图片上传至云存储空间
+        wx.cloud.uploadFile({
+          // 指定上传到的云路径
+          cloudPath: 'my-photo.png',
+          // 指定要上传的文件的小程序临时文件路径
+          filePath: chooseResult.tempFilePaths[0],
+          // 成功回调
+          success: res => {
+            console.log('上传成功', res)
+          },
+        })
+      },
+    })
   },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
 })

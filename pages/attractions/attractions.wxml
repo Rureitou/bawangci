@@ -1,2 +1,40 @@
 <!--pages/attractions/attractions.wxml-->
-<text>pages/attractions/attractions.wxml</text>
+
+<!-- 景区列表 -->
+<view class='padding-lr-20 attraction'>
+  <view class='list-title font-title height-max'>
+    {{within.title}}
+  </view>
+  <view class='list-wrap flex-wrap-between'>
+    <view class='list-item' wx:for="{{within.list}}" wx:key="this" data-idx='{{item.detail_id}}' bindtap='toDetail'>
+      <image src='{{item.image}}'></image>
+      <text class='font-middle lh-middle'>{{item.name}}</text>
+    </view>
+  </view>
+</view>
+
+<!-- 景区列表 -->
+<view class='padding-lr-20 attraction'>
+  <view class='list-title font-title height-max'>
+    {{outer.title}}
+  </view>
+  <view class='list-wrap flex-wrap-between'>
+    <view class='list-item' wx:for="{{outer.list}}" wx:key="this" data-idx='{{item.detail_id}}' bindtap='toDetail'>
+      <image src='{{item.image}}'></image>
+      <text class='font-middle lh-middle'>{{item.name}}</text>
+    </view>
+  </view>
+</view>
+
+<!-- 景区列表 -->
+<view class='padding-lr-20 attraction'>
+  <view class='list-title font-title height-max'>
+    {{kirmess.title}}
+  </view>
+  <view class='list-wrap flex-wrap-between'>
+    <view class='list-item' wx:for="{{kirmess.list}}" wx:key="this" data-idx='{{item.detail_id}}' bindtap='toDetail'>
+      <image src='{{item.image}}'></image>
+      <text class='font-middle lh-middle'>{{item.name}}</text>
+    </view>
+  </view>
+</view>
