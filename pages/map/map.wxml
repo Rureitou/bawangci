@@ -1,14 +1,16 @@
-<map
-  id="map"
-  longitude="118.47112"
-  latitude="31.848953493619145"
-  scale="14"
-  controls="{{controls}}"
-  bindcontroltap="controltap"
-  markers="{{markers}}"
-  bindmarkertap="markertap"
-  polyline="{{polyline}}"
-  bindregionchange="regionchange"
-  show-location
-  style="width: 100%; height: 1000rpx;"
-></map>
+<scroll-view class="{{isScroll ? '' : 'container'}}">
+  <view class="page-body">
+    <view class="page-section page-section-gap">
+      <map id="myMap" style="width: 100%; height: 900rpx;" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" covers="{{covers}}" show-location></map>
+    </view>
+    <view class="btn-area">
+      <button bindtap="getPosition" class="page-body-button" type="primary">导航</button>
+      <button bindtap="moveToLocation" class="page-body-button" type="primary">定位</button>
+    </view>
+  </view>
+
+
+  <block wx:if="{{!isScroll}}">
+    <include src="../../components/loading/loading.wxml" />
+  </block>
+</scroll-view>

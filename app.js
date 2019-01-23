@@ -1,6 +1,6 @@
 //app.js
 App({
-  onLaunch: function () {
+  onLaunch: function() {
 
     /** 
      * 云开发初始化
@@ -44,7 +44,8 @@ App({
   },
   globalData: {
     userInfo: null,
-    openid: ''
+    openid: '',
+    key: '5c91f74de5557a588f9a12bc844290a3'
   },
   toView(url, params) {
     if (params) { // 有传params

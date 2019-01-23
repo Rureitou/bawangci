@@ -1,0 +1,39 @@
+/* components/loading.wxss */
+
+.page {
+  height: 100%;
+  width: 100%;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: #fff;
+}
+
+.page__bd {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.weui-loadmore {
+  height: 200rpx;
+  width: 200rpx;
+  border-radius: 20rpx;
+  background-color: rgba(0, 0, 0, .5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.weui-loading {
+  width: 60rpx;
+  height: 60rpx;
+}
+.weui-loadmore__tips {
+  margin-top: 20rpx;
+  font-size: 36rpx;
+}

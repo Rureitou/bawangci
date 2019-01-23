@@ -1,1 +1,13 @@
 /* pages/map/map.wxss */
+.page-section-gap{
+  box-sizing: border-box;
+}
+.btn-area {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 40rpx 0;
+}
+.page-body-button {
+  width: 40%;
+}

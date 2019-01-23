@@ -66,7 +66,7 @@
   width: 700rpx;
   height: 380rpx;
   border-radius: 20rpx;
-  border: 1rpx solid #ccc;
+  border: 1rpx solid rgba(0, 0, 0, .1);
 }
 
 .describe .height-normal {
@@ -74,12 +74,14 @@
   text-align: center;
   line-height: 75rpx;
   margin: 20rpx 0;
+  background-color: #4fcc70;
+  color: #fff;
 }
 
 /* 景区展示 */
 
 .attraction .list-title {
-  border-top: 1rpx solid #c0c0c0;
+  border-top: 1rpx solid rgba(0, 0, 0, .1);
   margin-top: 40rpx;
   line-height: 100rpx;
 }

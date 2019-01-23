@@ -1,62 +1,71 @@
-<view class='weather_view'>
-  <image class='img' src='cloud://bawangci-9de84d.6261-bawangci-9de84d/bg/weather/qingtian.jpg'></image>
-  <view class='weather_wrap padding-lr-20'>
-    <!-- header -->
-    <view class='weather_header font-min'>
-      <view class='column_start'>
-        <text>乌江霸王祠景区</text>
-        <text>马鞍山市和县乌江镇驻马路100号</text>
-        <text>{{today.week}}</text>
+<view class="{{isScroll ? '' : 'container'}}">
+  <view class='weather_view'>
+    <image wx:if="{{uni === 1}}" class='img' src='cloud://bawangci-9de84d.6261-bawangci-9de84d/bg/weather/qingtian.jpg'></image>
+    <image wx:if="{{uni === 2}}" class='img' src='cloud://bawangci-9de84d.6261-bawangci-9de84d/bg/weather/yintian.jpg'></image>
+    <image wx:if="{{uni === 3}}" class='img' src='cloud://bawangci-9de84d.6261-bawangci-9de84d/bg/weather/yutian.jpg'></image>
+    <view class='weather_wrap padding-lr-20'>
+      <!-- header -->
+      <view class='weather_header font-min'>
+        <view class='column_start'>
+          <text>乌江霸王祠景区</text>
+          <text>马鞍山市和县乌江镇驻马路100号</text>
+          <text>{{today.week}}</text>
+        </view>
+        <view class='center_img' bindtap='init'>
+          <text>{{nowDate}}更新</text>
+          <image src='../../static/icons/shuaxin.png'></image>
+        </view>
       </view>
-      <view class='center_img' bindtap='init'>
-        <text>{{nowDate}}更新</text>
-        <image src='../../static/icons/shuaxin.png'></image>
+
+      <!-- 实时 sk -->
+      <view class='sk'>
+        <view class='sk-top'>
+          <view class='flex-top'>
+            <text class='sk_temp'>{{sk.temp}}</text>
+            <text class='deg'>℃</text>
+          </view>
+          <text class='font-title today_weather'>{{today.weather}}</text>
+        </view>
+
+        <view class='sk-middle font-min'>
+          <view class='image_wrap'>
+            <image src='../../static/icons/fengxiang.png'></image>
+          </view>
+
+          <text>{{today.wind}} {{sk.wind_strength}}</text>
+          <view class='image_wrap'>
+            <image src='../../static/icons/shidu.png'></image>
+          </view>
+
+          <text>湿度{{sk.humidity}}</text>
+        </view>
+
+        <view class='sk-bottom'>
+          <text class='font-middle'>提示：{{today.dressing_advice}}</text>
+        </view>
+      </view>
+
+      <!-- 未来七天 -->
+      <view class='future font-middle'>
+        <view class='future_title'>
+          <text>乌江霸王祠景区未来七天天气</text>
+        </view>
+        <view class='future_item' wx:for="{{future}}" wx:key="this">
+          <view class='item_left'>
+            <text>{{item.week === today.week ? '今天' : item.week}}</text>
+            <text>{{item.date}}</text>
+          </view>
+          <view class='item_right'>
+            <text>{{item.weather}}</text>
+            <text>{{item.temperature}}</text>
+            <text>{{item.wind}}</text>
+          </view>
+        </view>
       </view>
     </view>
 
-    <!-- 实时 sk -->
-    <view class='sk'>
-      <view class='sk-top'>
-        <view class='flex-top'>
-          <text class='sk_temp'>{{sk.temp}}</text>
-          <text class='deg'>℃</text>
-        </view>
-        <text class='font-title today_weather'>{{today.weather}}</text>
-      </view>
-
-      <view class='sk-middle font-min'>
-        <view class='image_wrap'>
-          <image src='../../static/icons/fengxiang.png'></image>
-        </view>
-
-        <text>{{today.wind}} {{sk.wind_strength}}</text>
-        <view class='image_wrap'>
-          <image src='../../static/icons/shidu.png'></image>
-        </view>
-
-        <text>{{today.dressing_index}}</text>
-      </view>
-
-      <view class='sk-bottom'>
-        <text class='font-middle'>提示：{{today.dressing_advice}}</text>
-      </view>
-    </view>
-
-    <!-- 未来七天 -->
-    <view class='future font-middle'>
-      <view class='future_title'>
-        <text>乌江霸王祠景区未来七天天气</text>
-      </view>
-      <view class='future_item' wx:for="{{future}}" wx:key="this">
-        <view class='item_left'>
-          <text>{{item.week === today.week ? '今天' : item.week}}</text>
-        </view>
-        <view class='item_right'>
-          <text>{{item.weather}}</text>
-          <text>{{item.temperature}}</text>
-          <text>{{item.wind}}</text>
-        </view>
-      </view>
-    </view>
+    <block wx:if="{{!isScroll}}">
+      <include src="../../components/loading/loading.wxml" />
+    </block>
   </view>
 </view>

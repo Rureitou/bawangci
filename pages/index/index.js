@@ -1,9 +1,12 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
+import loading from "../../components/loading/loading";
 Page({
   data: {
+    latitude: 31.847549,
+    longitude: 118.471123,
+    isScroll: false,
     detailId: null,
     motto: '欢迎来到乌江霸王祠景区',
     userInfo: {},
@@ -114,6 +117,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function() {
+    setTimeout(() => {
+      this.setData({
+        isScroll: true
+      })
+    }, 1000)
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -141,27 +149,26 @@ Page({
       })
     }
   },
-  upLoad() {
-    wx.chooseImage({
-      success: chooseResult => {
-        // 将图片上传至云存储空间
-        wx.cloud.uploadFile({
-          // 指定上传到的云路径
-          cloudPath: 'my-photo.png',
-          // 指定要上传的文件的小程序临时文件路径
-          filePath: chooseResult.tempFilePaths[0],
-          // 成功回调
-          success: res => {
-            console.log('上传成功', res)
-          },
-        })
-      },
-    })
-  },
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
+  },
+  getPosition() {
+    var that = this;
+    wx.getLocation({
+      type: 'gcj02', // 返回可以用于wx.openLocation的经纬度
+      success(res) {
+        console.log(typeof res.latitude)
+        const latitude = that.data.latitude
+        const longitude = that.data.longitude
+        wx.openLocation({
+          latitude,
+          longitude,
+          scale: 15
+        })
+      }
+    })
   }
 })

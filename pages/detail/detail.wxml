@@ -1,34 +1,39 @@
+<view class="{{isScroll ? '' : 'container'}}">
+  <!-- 轮播图 -->
+  <view class='banner'>
+    <swiper indicator-dots="{{indicatorDots}}" indicator-color="#fff" indicator-active-color="#000" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true">
+      <block wx:for="{{imgs}}" wx:key="*this">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
 
-    <!-- 轮播图 -->
-    <view class='banner'>
-      <swiper indicator-dots="{{indicatorDots}}" indicator-color="#fff" indicator-active-color="#000" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true">
-        <block wx:for="{{imgs}}" wx:key="*this">
-          <swiper-item>
-            <image src="{{item}}" class="slide-image" />
-          </swiper-item>
-        </block>
-      </swiper>
-    </view>
-
-    <!-- 景区信息 -->
-    <view class='info padding-lr-40' wx:if="{{title}}">
-      <text class='font-title height-max'>{{title}}</text>
-      <view class='info_wrap'>
-        <view class='info_item font-min' wx:for="{{info}}" wx:key="this">
-          <text class='first'>{{item.title}}：</text>
-          <view class='last'>
-            <text wx:for="{{item.content}}" wx:for-item="it" wx:key="this">{{it}}</text>
-          </view>
+  <!-- 景区信息 -->
+  <view class='info padding-lr-40' wx:if="{{title}}">
+    <text class='font-title height-max'>{{title}}</text>
+    <view class='info_wrap'>
+      <view class='info_item font-min' wx:for="{{info}}" wx:key="this">
+        <text class='first'>{{item.title}}：</text>
+        <view class='last'>
+          <text wx:for="{{item.content}}" wx:for-item="it" wx:key="this">{{it}}</text>
         </view>
       </view>
     </view>
+  </view>
 
-    <!-- 景区介绍 -->
-    <view class='content info padding-lr-40'>
-      <text class='font-title height-max'>{{name}}</text>
-      <view class='content_wrap'>
-        <view class='content_item font-middle' wx:for="{{content}}"  wx:key="this">
-          <text>{{item}}</text>
-        </view>
+  <!-- 景区介绍 -->
+  <view class='content info padding-lr-40'>
+    <text class='font-title height-max'>{{name}}</text>
+    <view class='content_wrap'>
+      <view class='content_item font-middle' wx:for="{{content}}" wx:key="this">
+        <text>{{item}}</text>
       </view>
     </view>
+  </view>
+
+  <block wx:if="{{!isScroll}}">
+    <include src="../../components/loading/loading.wxml" />
+  </block>
+</view>

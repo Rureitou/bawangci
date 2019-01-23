@@ -2,7 +2,6 @@
   "cloud": true,
   "pages": [
     "pages/index/index",
-    "pages/logs/logs",
     "pages/attractions/attractions",
     "pages/map/map",
     "pages/weather/weather",

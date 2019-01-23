@@ -20,7 +20,8 @@ Page({
     title: '',
     content: [],
     info: [],
-    imgs: []
+    imgs: [],
+    isScroll: false
   },
 
   /**
@@ -40,6 +41,11 @@ Page({
         content: res.data[0].content,
         imgs: res.data[0].imgs
       })
+      setTimeout(() => {
+        this.setData({
+          isScroll: true
+        })
+      }, 1000)
       if (res.data[0].info) {
         this.setData({
           info: res.data[0].info

@@ -7,68 +7,95 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isScroll: false,
     within: {
       title: '景区祠内区',
       list: [{
-        name: '西侧殿',
-        image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-1.jpg',
-        detail_id: 1
-      },
-      {
-        name: '东侧殿',
-        image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-2.jpg',
-        detail_id: 2
-      },
-      {
-        name: '享殿',
-        image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-3.jpg',
-        detail_id: 3
-      },
-      {
-        name: '西楚霸王衣冠冢',
-        image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-4.jpg',
-        detail_id: 4
-      }
+          name: '西侧殿',
+          image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-1.jpg',
+          detail_id: 1
+        },
+        {
+          name: '东侧殿',
+          image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-2.jpg',
+          detail_id: 2
+        },
+        {
+          name: '享殿',
+          image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-3.jpg',
+          detail_id: 3
+        },
+        {
+          name: '西楚霸王衣冠冢',
+          image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-4.jpg',
+          detail_id: 4
+        }
       ]
     },
     outer: {
       title: '景区祠外区',
-      list: [
-      {
-        name: '驻马河',
+      list: [{
+          name: '驻马河',
           image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-5.jpg',
           detail_id: 5
-      },
-      {
-        name: '乌江亭',
-        image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-6.jpg',
-        detail_id: 6
-      },
-      {
-        name: '抛首石',
-        image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-7.jpg',
-        detail_id: 7
-      },
-      {
-        name: '三十一响钟亭',
-        image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-8.jpg',
-        detail_id: 8
-      },
-      {
-        name: '碑廊',
-        image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-9.jpg',
-        detail_id: 9
-      }
-      
+        },
+        {
+          name: '乌江亭',
+          image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-6.jpg',
+          detail_id: 6
+        },
+        {
+          name: '抛首石',
+          image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-7.jpg',
+          detail_id: 7
+        },
+        {
+          name: '三十一响钟亭',
+          image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-8.jpg',
+          detail_id: 8
+        },
+        {
+          name: '碑廊',
+          image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-9.jpg',
+          detail_id: 9
+        }
+
       ]
     },
     kirmess: {
-      title: '庙会',
-      list: [
+      title: '景区庙会',
+      list: [{
+        name: '霸王祠“三月三”庙会',
+        image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-10.jpg',
+        detail_id: 10
+      }]
+    },
+    roomAndBoard: {
+      title: '景区食宿和交通',
+      list: [{
+          name: '清沐铂金酒店',
+          image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-11.jpg',
+          detail_id: 11
+        },
         {
-          name: '霸王祠“三月三”庙会',
-          image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-10.jpg',
-          detail_id: 10
+          name: '乌江镇春满园大酒店',
+          image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-12.jpg',
+          detail_id: 12
+        },
+        {
+          name: '霸王酥',
+          image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-13.jpg',
+          detail_id: 13
+        },
+        {
+          name: '花生米',
+          image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-14.jpg',
+          detail_id: 14
+        },
+        {
+          name: '交通便利',
+          image: 'cloud://bawangci-9de84d.6261-bawangci-9de84d/index-list/list-15.jpg',
+          detail_id: 15
         }
       ]
     }
@@ -79,6 +106,11 @@ Page({
    */
   onLoad: function(options) {
 
+    setTimeout(() => {
+      this.setData({
+        isScroll: true
+      })
+    }, 1000)
   },
 
   /**

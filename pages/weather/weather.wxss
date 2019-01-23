@@ -11,6 +11,8 @@
 .img {
   width: 750rpx;
   height: 1500rpx;
+  margin: 0;
+  padding: 0;
 }
 
 .weather_wrap {
@@ -132,6 +134,11 @@
   background-color: rgba(41, 91, 140, .75);
   text-align: center;
   flex: 1;
+  display: flex;
+  line-height: 36rpx;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .future .future_item .item_right {
   /* background: #346392; */
